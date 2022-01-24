@@ -14,7 +14,7 @@ const int PIN_B = 3;
 
 
 //int a, b;
-byte state;
+byte a,b;
 
 int evaluateState(byte vals){
   int cnt;
@@ -48,27 +48,34 @@ void setup() {
 }
 
 void loop() {
-  static byte lastState = 0b00;
+  static byte lastA = 0b0;
   static int counts = 0;
 //  int tmp;
   
   // put your main code here, to run repeatedly:
-//  a = digitalRead(PIN_A);
-//  b = digitalRead(PIN_B);
+  a = digitalRead(PIN_A);
+  b = digitalRead(PIN_B);
 //  state = (a<<1) | b;
-  state = (digitalRead(PIN_A)<<1) | digitalRead(PIN_B);
+//  state = (digitalRead(PIN_A)<<1) | digitalRead(PIN_B);
 
-  if (lastState == ROT_NOCHNG && state != ROT_NOCHNG){
-    counts += evaluateState(state);
+  if (a ^ lastA){
+    counts += 2*(a ^ b) - 1;
   }
-
-  lastState = state;
+//  if (state != lastState){
+//    counts += evaluateState(state);
+//  }
+//
+lastA = a;
+//  lastState = state;
 //  Serial.print(a);
 //  Serial.print(" ");
 //  Serial.print(b);
 //  Serial.print(" ");
-//  Serial.println(state, BIN);
-  Serial.print("Counts: ");
-  Serial.println(counts);
+//  Serial.println(state);
+//  Serial.print("Counts: ");
+//  Serial.println(counts);
+Serial.print(a^b);
+Serial.print(" ");
+Serial.println(counts);
   delay(1);
 }

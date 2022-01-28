@@ -10,7 +10,7 @@ counterclockwise movements are negative.
 
 ## Wiring
 
-![](img/rotary_wiring.png)
+![](img/rotary_wiring.jpg)
 
 The rotary encoder has + connected to 5V on the Arduino, and GND to GND. 
 
@@ -28,7 +28,7 @@ configure the IDE to the correct port, and select 'Upload' to program. Verify th
 
 ## Wiring
 
-![](img/led_wiring.png)
+![](img/led_wiring.jpg)
 
 Each LED is connected from a digital pin (pins 10-13), to ground
 through a resistor. This allows the LEDs to be "active high".
